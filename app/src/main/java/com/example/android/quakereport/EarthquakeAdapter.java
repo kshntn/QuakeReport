@@ -1,6 +1,7 @@
 package com.example.android.quakereport;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -11,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
-import android.graphics.drawable.GradientDrawable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,7 +48,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
 
         TextView MagnitudeView = ListItemView.findViewById(R.id.magnitude);
-        String  formattedMagnitude=formatMagnitude(currentEarthQuake.getmMagnitude());
+        String formattedMagnitude = formatMagnitude(currentEarthQuake.getmMagnitude());
         MagnitudeView.setText(formattedMagnitude);
         GradientDrawable magnitudeCircle = (GradientDrawable) MagnitudeView.getBackground();
         int magnitudeColor = getMagnitudeColor(currentEarthQuake.getmMagnitude());
@@ -82,6 +82,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         DecimalFormat formatter = new DecimalFormat("0.0");
         return formatter.format(magnitude);
     }
+
     private int getMagnitudeColor(double magnitude) {
         int magnitudeColorResourceId;
         int magnitudeFloor = (int) Math.floor(magnitude);
