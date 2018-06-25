@@ -37,11 +37,21 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
      * Constant value for the earthquake loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
      */
+    public static final String LOG_TAG = EarthquakeActivity.class.getName();
+    private static final int EARTHQUAKE_LOADER_ID = 1;
+    /**
+     * URL for earthquake data from the USGS dataset
+     */
+    private static final String USGS_REQUEST_URL =
+            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=5&limit=10";
     /**
      * TextView that is displayed when the list is empty
      */
     private TextView mEmptyStateTextView;
-    private static final int EARTHQUAKE_LOADER_ID = 1;
+    /**
+     * Adapter for the list of earthquakes
+     */
+    private EarthquakeAdapter mAdapter;
 
     @Override
     public Loader<ArrayList<Earthquake>> onCreateLoader(int i, Bundle bundle) {
@@ -71,18 +81,6 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         // Loader reset, so we can clear out our existing data.
         mAdapter.clear();
     }
-
-    /**
-     * Adapter for the list of earthquakes
-     */
-    private EarthquakeAdapter mAdapter;
-    public static final String LOG_TAG = EarthquakeActivity.class.getName();
-    /**
-     * URL for earthquake data from the USGS dataset
-     */
-    private static final String USGS_REQUEST_URL =
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&minmag=5&limit=10";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

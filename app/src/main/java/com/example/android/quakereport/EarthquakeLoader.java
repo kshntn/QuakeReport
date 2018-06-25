@@ -4,18 +4,21 @@ import android.content.AsyncTaskLoader;
 import android.content.Context;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class EarthquakeLoader extends AsyncTaskLoader<ArrayList<Earthquake>>{
-    /** Tag for log messages */
+public class EarthquakeLoader extends AsyncTaskLoader<ArrayList<Earthquake>> {
+    /**
+     * Tag for log messages
+     */
     private static final String LOG_TAG = EarthquakeLoader.class.getName();
 
-    /** Query URL */
+    /**
+     * Query URL
+     */
     private String mUrl;
 
-    public EarthquakeLoader(Context context,String url) {
+    public EarthquakeLoader(Context context, String url) {
         super(context);
-        mUrl=url;
+        mUrl = url;
     }
 
     @Override

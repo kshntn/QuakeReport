@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
+    private static final String LOCATION_SEPARATOR = " of ";
     String primaryLocation;
     String locationOffset;
-    private static final String LOCATION_SEPARATOR = " of ";
 
     public EarthquakeAdapter(Context context, ArrayList earthquakes) {
         super(context, 0, earthquakes);
